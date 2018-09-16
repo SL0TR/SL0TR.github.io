@@ -1,0 +1,38 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  // This defines what 1rem is
+  font-size: 62.5%; // 1 rem = 10px; 10px/16px = 62.5%;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+button:focus {
+  outline: none !important;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+
+img {
+  max-width: 100%;
+}
+
+b, strong {
+  font-weight: bold;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+}
