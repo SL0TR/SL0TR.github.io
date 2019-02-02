@@ -30,6 +30,7 @@ const CustomFlex = styled(Flex)`
 const HomeContainer = styled.div`
   height: 100vh;
   width: 100%;
+  transition: all .3s;
   background: ${props => props.theme.bg};
   display: flex;
   justify-content: center;
@@ -47,8 +48,8 @@ const Home = () => {
       <Container>
       <CustomFlex>
         <Box width={[ 1, 1/2 ]}  mt={4} px={5} >
-          <h1>Hello, I'm Mohaimin Islam,<br/> a Full-Stack JS Developer</h1 >
-          <Button>Normal</Button>
+          <h1>Hello, I'm Mohaimin;<br/> a Full-Stack JS Developer</h1 >
+          {/* <Button>Normal</Button> */}
         </Box>
         <Box width={[ 1, 1/2 ]} mt={4} px={5}>
           <img className="illust" src={Illust} alt="lalal"/>

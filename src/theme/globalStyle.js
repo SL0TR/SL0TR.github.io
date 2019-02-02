@@ -82,7 +82,7 @@ export const Container = styled.div`
 `
 
 export const Theme = {
-  fg: "#151618",
+  fg: "#1D2731",
   bg: "#F7F7F7",
   darkBlue: "#0B3C5D",
   center: 'center'
