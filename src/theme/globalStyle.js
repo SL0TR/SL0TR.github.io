@@ -27,20 +27,21 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   h1, h2 , h3, h4 {
+    transition: all .3s ease-in-out;
     color: ${props => props.theme.fg};
     font-family: 'Poppins', sans-serif;
   }
 
   h1 {
-    font-size: 5rem;
+    font-size: 4.5rem;
   }
 
   h2 {
-    font-size: 4rem;
+    font-size: 3.5rem;
   }
 
   h3 {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
 
   p {
@@ -90,5 +91,6 @@ export const Theme = {
 
 export const invertTheme = ({ fg, bg }) => ({
   fg: bg,
-  bg: fg
+  bg: fg,
+  center: 'center'
 });
