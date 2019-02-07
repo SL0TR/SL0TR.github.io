@@ -1,26 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import Illust from '../../assets/images/illust-3-dark-v2.svg'
 import { Flex, Box } from '@rebass/grid'
-import { Container, media } from '../../theme/globalStyle';
+import { Container, Button } from '../../theme/globalStyle';
 import CoderIllustrat from '../svg/coderIllust';
 
-const Button = styled.button`
-  color: ${props => props.theme.fg};
-  border: 2px solid ${props => props.theme.fg};
-  background: ${props => props.theme.bg};
-  transition: all .3s ease-in-out;
-  font-size: 1.6rem;
-  margin: 1.6rem auto;
-  padding: 0.25em 1.6rem;
-  border-radius: 3px;
-`;
-
-Button.defaultProps = {
-  theme: {
-    main: "palevioletred"
-  }
-}
 
 const CustomFlex = styled(Flex)`
   width: 100%;
@@ -60,8 +43,6 @@ const Home = () => {
           <Button>About Me</Button>
         </CenteredBox>
         <CenteredBox width={[ 1, 1/2 ]} mt={4} px={5}>
-          {/* <img className="illust" src={Illust} alt="lalal"/> */}
-          {/* <IllustComponent fill="#2c3e50" /> */}
           <CoderIllustrat fill="#3498db" />
         </CenteredBox>
       </CustomFlex>

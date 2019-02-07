@@ -23,10 +23,11 @@ export const GlobalStyle = createGlobalStyle`
   body {
     padding: 0;
     margin: 0;
+    overflow-x: hidden;
     box-sizing: border-box;
   }
 
-  h1, h2 , h3, h4 {
+  h1, h2 , h3, h4, li, a {
     transition: all .3s ease-in-out;
     color: ${props => props.theme.fg};
     font-family: 'Poppins', sans-serif;
@@ -70,6 +71,50 @@ export const media = Object.keys(sizes).reduce((acc, label) => {
   return acc
 }, {})
 
+export const Theme = {
+  fg: '#1D2731',
+  bg: '#F7F7F7',
+  darkBlue: '#0B3C5D',
+  lightBlue: '#328CC1',
+  yellow: '#D9B310',
+  center: 'center'
+};
+
+export const invertTheme = ({ fg, bg, darkBlue, yellow }) => ({
+  fg: bg,
+  bg: fg,
+  darkBlue: yellow,
+  yellow: darkBlue,
+  lightBlue: '#328CC1',
+  center: 'center'
+});
+
+
+
+// Custom Components
+export const Button = styled.button`
+  color: ${props => props.theme.fg};
+  border: 2px solid ${props => props.theme.fg};
+  background: ${props => props.theme.bg};
+  transition: all .3s ease-in-out;
+  font-size: 1.6rem;
+  margin: 1.6rem auto;
+  padding: 1rem 3.6rem;
+  border-radius: 3px;
+  cursor: pointer;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+`;
+
+Button.defaultProps = {
+  theme: {
+    main: "palevioletred"
+  }
+}
+
 export const Container = styled.div`
 
   padding-right: 15px;
@@ -81,16 +126,3 @@ export const Container = styled.div`
   ${media.desktop`width: 1170px;`}
   ${media.bigDesktop`width: 1600px;`}
 `
-
-export const Theme = {
-  fg: "#1D2731",
-  bg: "#F7F7F7",
-  darkBlue: "#0B3C5D",
-  center: 'center'
-};
-
-export const invertTheme = ({ fg, bg }) => ({
-  fg: bg,
-  bg: fg,
-  center: 'center'
-});

@@ -1,18 +1,22 @@
 import React, { Component } from 'react'
 import { Route, Switch, Redirect } from "react-router-dom"
 import './App.css'
-
-import Home from './components/pages/home'
-import Portfolio from './components/pages/portfolio'
 import { GlobalStyle } from './theme/globalStyle'
-import { ThemeProvider } from 'styled-components'
+import styled, { ThemeProvider } from 'styled-components'
 import { Theme, invertTheme } from './theme/globalStyle'
 import Nav from './components/common/nav';
-import styled from 'styled-components'
+
+// Page Component Imports
+import Home from './components/pages/home'
+import Portfolio from './components/pages/portfolio'
+import ContactMe from './components/pages/contactMe'
+import Skills from './components/pages/skills'
+import AboutMe from './components/pages/aboutMe'
+import NotFound from './components/pages/notFound'
 
 
 const NavToggleBtn = styled.div`
-  height: 4rem;
+  height: 2rem;
   width: 4rem;
   position: fixed;
   left: 5rem;
@@ -20,7 +24,7 @@ const NavToggleBtn = styled.div`
   z-index: 15;
   cursor: pointer;
 
-  span {
+  /* span {
     height: 5px;
     background-color: ${ props => props.navToggle === false ? props.theme.fg : props.theme.bg };
     transition: all .3s;
@@ -31,7 +35,7 @@ const NavToggleBtn = styled.div`
     border-radius: 5px;
     opacity: ${props => props.navToggle === false ? '1' : '0' };
     transform: translateY(-50%);
-  }
+  } */
 
   &::after,
   &::before {
@@ -46,13 +50,13 @@ const NavToggleBtn = styled.div`
 
   &::after {
     left: 0;
-    top: ${props => props.navToggle === false ? '0' : '48%' } ;
+    top: ${props => props.navToggle === false ? '0' : '50%' } ;
     transform: translateY(${props => props.navToggle === false ? '0' : '-50%' } ) rotate(${props => props.navToggle === false ? '0deg' : '45deg' } );
   }
 
   &::before {
     right: 0;
-    bottom: ${props => props.navToggle === false ? '0' : '40%' } ;
+    bottom: ${props => props.navToggle === false ? '0' : '50%' } ;
     transform: translateY(${props => props.navToggle === false ? '0' : '-50%' } ) rotate(${props => props.navToggle === false ? '0deg' : '-45deg' } );
   }
 
@@ -65,7 +69,7 @@ class App extends Component {
     navToggle: false,
   }
 
-  onNavToggle = () => {
+  handleNavToggle = () => {
     const { navToggle } = this.state;
     this.setState({ navToggle: !navToggle })
   }
@@ -76,12 +80,16 @@ class App extends Component {
         <ThemeProvider theme={ this.state.inverted ? invertTheme  : Theme }>
           <React.Fragment>
             <GlobalStyle />
-            <NavToggleBtn navToggle={navToggle} onClick={ this.onNavToggle } ><span></span></NavToggleBtn>
-            <Nav navToggle={navToggle} />
+            <NavToggleBtn navToggle={navToggle} onClick={ this.handleNavToggle } ><span></span></NavToggleBtn>
+            <Nav navToggle={navToggle} onNavToggle={this.handleNavToggle} />
             <div className="main">
               <Switch>
                 <Route exact path="/" component={Home} />
-                <Route exact path="/portfolio" component={Portfolio} />
+                <Route path="/portfolio" component={Portfolio} />
+                <Route path="/about-me" component={AboutMe} />
+                <Route path="/skills" component={Skills} />
+                <Route path="/contact-me" component={ContactMe} />
+                <Route path="/not-found" component={NotFound} />
                 <Redirect to="/not-found" />
               </Switch>
             </div>
