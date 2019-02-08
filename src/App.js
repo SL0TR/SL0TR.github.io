@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Route, Switch, Redirect } from "react-router-dom"
 import './App.css'
 import { GlobalStyle } from './theme/globalStyle'
-import styled, { ThemeProvider } from 'styled-components'
+import { ThemeProvider } from 'styled-components'
 import { Theme, invertTheme } from './theme/globalStyle'
 import Nav from './components/common/nav';
 
@@ -14,6 +14,7 @@ import Skills from './components/pages/skills'
 import AboutMe from './components/pages/aboutMe'
 import NotFound from './components/pages/notFound'
 import NavToggleBtn from './components/common/navToggleBtn';
+import ThemeSwitchBtn from './components/common/themeSwithBtn';
 
 class App extends Component {
   state = {
@@ -25,15 +26,21 @@ class App extends Component {
     const { navToggle } = this.state;
     this.setState({ navToggle: !navToggle })
   }
-  
+
+  handleThemeToggle = () => {
+    const { inverted } = this.state;
+    this.setState({ inverted: !inverted })
+  }
+
   render() {
-    const { navToggle} = this.state;
+    const { navToggle, inverted } = this.state;
     return (
       <ThemeProvider theme={ Theme  }>
         <ThemeProvider theme={ this.state.inverted ? invertTheme  : Theme }>
           <React.Fragment>
             <GlobalStyle />
             <NavToggleBtn navToggle={navToggle} onNavToggle={ this.handleNavToggle } />
+            <ThemeSwitchBtn invertToggle={inverted} onThemeToggle={ this.handleThemeToggle } />
             <Nav navToggle={navToggle} onNavToggle={this.handleNavToggle} />
             <div className="main">
               <Switch>

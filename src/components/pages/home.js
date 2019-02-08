@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Flex, Box } from '@rebass/grid'
-import { Container, Button } from '../../theme/globalStyle';
+import { Container, ThemeButton } from '../../theme/globalStyle';
 import CoderIllustrat from '../svg/coderIllust';
 
 
@@ -40,7 +40,7 @@ const Home = () => {
       <CustomFlex>
         <CenteredBox width={[ 1, 1/2 ]}  mt={4} px={5} >
           <h1>Hello, I'm Mohaimin;<br/> a Full-Stack JS Developer</h1 >
-          <Button>About Me</Button>
+          <ThemeButton>About Me</ThemeButton>
         </CenteredBox>
         <CenteredBox width={[ 1, 1/2 ]} mt={4} px={5}>
           <CoderIllustrat fill="#3498db" />

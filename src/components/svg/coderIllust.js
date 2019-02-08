@@ -6,11 +6,16 @@ const Icon = styled.svg`
   transition: fill 0.3s ease-in-out;
 
   path[fill="#6c63ff"],
-  path[fill="#535461"],
   path[fill="#e14b5a"],
   ellipse[fill="#e14b5a" ] {
     fill: ${props => props.theme.fg};
-  },
+  }
+  
+  path[fill="#ffd037"],
+  path[fill="#535461"] {
+    fill: ${props => props.theme.darkBlue};
+  }
+
   circle {
     fill: ${props => props.theme.bg};
   }

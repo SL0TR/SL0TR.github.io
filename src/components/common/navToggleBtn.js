@@ -37,7 +37,7 @@ const NavTogglerBtn = styled.div`
 
   &::after {
     left: 0;
-    top: ${props => props.navToggle === false ? '1rem' : '40%' } ;
+    top: ${props => props.navToggle === false ? '1rem' : '38%' } ;
     transform: translateY(${props => props.navToggle === false ? '0' : '-50%' } ) rotate(${props => props.navToggle === false ? '0deg' : '45deg' } );
   }
 

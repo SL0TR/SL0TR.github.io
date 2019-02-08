@@ -77,7 +77,10 @@ export const Theme = {
   darkBlue: '#0B3C5D',
   lightBlue: '#328CC1',
   yellow: '#D9B310',
-  center: 'center'
+  headerFont: 'Poppins',
+  paraFont: 'Lato',
+  center: 'center',
+  defaultTransition: 'all .3s'
 };
 
 export const invertTheme = ({ fg, bg, darkBlue, yellow }) => ({
@@ -86,25 +89,44 @@ export const invertTheme = ({ fg, bg, darkBlue, yellow }) => ({
   darkBlue: yellow,
   yellow: darkBlue,
   lightBlue: '#328CC1',
-  center: 'center'
+  headerFont: 'Poppins',
+  paraFont: 'Lato',
+  center: 'center',
+  defaultTransition: 'all .3s'
 });
 
 
 
 // Custom Components
 export const Button = styled.button`
+  border: none;
   color: ${props => props.theme.fg};
-  border: 2px solid ${props => props.theme.fg};
   background: ${props => props.theme.bg};
   transition: all .3s ease-in-out;
   font-size: 1.6rem;
   margin: 1.6rem auto;
   padding: 1rem 3.6rem;
+  font-family: ${props => props.theme.paraFont};
+  font-weight: bold;
+  text-transform: uppercase;
   border-radius: 3px;
   cursor: pointer;
 
+`;
+
+export const FlatButton = styled(Button)`
+  border: 2px solid ${props => props.theme.fg};
+`;
+
+export const ThemeButton = styled(Button)`
+  color: ${props => props.theme.bg};
+  border: 2px solid ${props => props.theme.darkBlue};
+  background: ${props => props.theme.darkBlue};
+
   &:hover {
-    cursor: pointer;
+    background: ${props => props.theme.bg};
+    color: ${props => props.theme.darkBlue};
+    border: 2px solid ${props => props.theme.darkBlue};
   }
 
 `;
