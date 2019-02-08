@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Route, BrowserRouter, Switch, Redirect } from "react-router-dom"
-import './App.css'
 import { GlobalStyle } from './theme/globalStyle'
 import { ThemeProvider } from 'styled-components'
 import { Theme, invertTheme } from './theme/globalStyle'
