@@ -40,7 +40,7 @@ class App extends Component {
           <React.Fragment>
             <GlobalStyle />
               <BrowserRouter>
-                <Layout navToggle={navToggle} onNavToggle={ this.handleNavToggle } onThemeToggle={ this.handleThemeToggle }invertToggle={inverted}  >
+                <Layout navToggle={navToggle} onNavToggle={ this.handleNavToggle } onThemeToggle={ this.handleThemeToggle } invertToggle={inverted}  >
                   <Switch>
                     <Route exact path="/" component={Home} />
                     <Route path="/portfolio" component={Portfolio} />

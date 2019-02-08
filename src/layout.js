@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 
@@ -13,23 +13,15 @@ const ChildrenWrapper = styled.div`
 `;
 
 
-class Layout extends Component {
-
-  render() {
-    const { children, navToggle, inverted, onNavToggle, onThemeToggle } = this.props;
-
-    return ( 
-      <LayoutContainer>
-        <NavToggleBtn navToggle={navToggle} onNavToggle={ onNavToggle } />
-        <ThemeSwitchBtn invertToggle={inverted} onThemeToggle={ onThemeToggle } />
-        <Nav navToggle={navToggle} onNavToggle={onNavToggle} />
-        <ChildrenWrapper>
-          { children }
-        </ChildrenWrapper>
-      </LayoutContainer>
-     );
-  }
-}
+const Layout = ( { children, navToggle, invertToggle, onNavToggle, onThemeToggle } ) => 
+  <LayoutContainer>
+    <NavToggleBtn navToggle={navToggle} onNavToggle={ onNavToggle } />
+    <ThemeSwitchBtn invertToggle={invertToggle} onThemeToggle={ onThemeToggle } />
+    <Nav navToggle={navToggle} onNavToggle={onNavToggle} />
+    <ChildrenWrapper>
+      { children }
+    </ChildrenWrapper>
+  </LayoutContainer>
 
 
 export default Layout;
