@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, BrowserRouter, Switch, Redirect } from 'react-router-dom';
+import { Route, BrowserRouter as Router, Switch, Redirect } from 'react-router-dom';
 import { GlobalStyle } from './theme/globalStyle';
 import { ThemeProvider } from 'styled-components';
 import { Theme, invertTheme } from './theme/globalStyle';
@@ -36,33 +36,33 @@ class App extends Component {
     const { navToggle, inverted } = this.state;
     return (
       <ThemeProvider theme={ Theme  }>
-        <ThemeProvider theme={ this.state.inverted ? invertTheme  : Theme }>
+        <ThemeProvider theme={ inverted ? invertTheme  : Theme }>
           <React.Fragment>
             <GlobalStyle />
-              <BrowserRouter>
+              <Router>
                 <Route render={ ( { location } ) => (
                   <Layout navToggle={navToggle} onNavToggle={ this.handleNavToggle } onThemeToggle={ this.handleThemeToggle } invertToggle={inverted}  >
-                  <TransitionGroup component={null}>
-                    <CSSTransition
-                      timeout={300}
-                      key={location.key}
-                      classNames='page'
-                    >
-                      <Switch location={location}>
-                        <Route exact path='/' component={Home} />
-                        <Route path='/portfolio' component={Portfolio} />
-                        <Route path='/about-me' component={AboutMe} />
-                        <Route path='/skills' component={Skills} />
-                        <Route path='/contact-me' component={ContactMe} />
-                        <Route path='/not-found' component={NotFound} />
-                        <Redirect to='/not-found' />
-                      </Switch>
-                    </CSSTransition>
-                  </TransitionGroup>
+                    <TransitionGroup component={null}>
+                      <CSSTransition
+                        timeout={300}
+                        key={location.key}
+                        classNames='page'
+                      >
+                        <Switch location={location}>
+                          <Route exact path='/' component={Home} />
+                          <Route path='/portfolio' component={Portfolio} />
+                          <Route path='/about-me' component={AboutMe} />
+                          <Route path='/skills' component={Skills} />
+                          <Route path='/contact-me' component={ContactMe} />
+                          <Route path='/not-found' component={NotFound} />
+                          <Redirect to='/not-found' />
+                        </Switch>
+                      </CSSTransition>
+                    </TransitionGroup>
                 </Layout>
                 )} />
 
-              </BrowserRouter>
+              </Router>
           </React.Fragment>
         </ThemeProvider>
       </ThemeProvider>
