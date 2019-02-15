@@ -4,11 +4,6 @@ import styled from 'styled-components'
 
 
 const NavContainer = styled.div`
-  /* position: fixed; */
-  /* width: 100%; */
-  /* height: 100%; */
-  /* display: none; */
-
   .nav-menu,
   .social-menu {
     width: 50vw;
@@ -17,6 +12,7 @@ const NavContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 10;
   }
 
   .nav-menu {
