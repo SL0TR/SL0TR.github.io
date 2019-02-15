@@ -25,12 +25,14 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     overflow-x: hidden;
     box-sizing: border-box;
+
   }
 
   h1, h2 , h3, h4, li, a {
     transition: all .3s ease-in-out;
     color: ${props => props.theme.fg};
-    font-family: 'Poppins', sans-serif;
+    font-family: ${props => props.theme.headerFont};
+    ${props => props.theme.defaultTransition};
   }
 
   h1 {
@@ -47,7 +49,9 @@ export const GlobalStyle = createGlobalStyle`
 
   p {
     font-size: 1.6rem;
-    font-family: 'Lato', sans-serif;
+    color: ${props => props.theme.fg};
+    font-family: ${props => props.theme.paraFont};
+    transition: ${props => props.theme.defaultTransition};
   }
 
   @keyframes sheen {
@@ -103,18 +107,6 @@ export const invertTheme = ({ fg, bg, darkBlue, yellow }) => ({
   center: 'center',
   defaultTransition: 'all .3s'
 });
-
-
-// Animation Components
-// const sheen = styled.keyframes`
-//   0% {
-//     transform: skewY(-45deg) translateX(0);
-//   }
-//   100% {
-//     transform: skewY(-45deg) translateX(12.5rem);
-//   }
-
-// `;
 
 
 // Custom Components
@@ -175,7 +167,7 @@ export const AnimatedButton = styled.button`
     color:  ${props => props.theme.bg};
     border-bottom: 4px solid darken(${props => props.theme.fg}, 10%);
     &:before {
-      transform: skewX(-45deg) translateX(25.5rem);
+      transform: skewX(-45deg) translateX(35.5rem);
      transition: all 0.5s ease-in-out;
     }
   }
@@ -201,7 +193,6 @@ export const ThemeButton = styled(Button)`
 export const AnimatedThemeButton = styled(AnimatedButton)`
   color: ${props => props.theme.darkBlue};
   border: 2px solid ${props => props.theme.darkBlue};
-  margin: 1rem 0;
 
   &:hover {
     background-color: ${props => props.theme.darkBlue};
