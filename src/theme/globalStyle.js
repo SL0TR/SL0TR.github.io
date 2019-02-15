@@ -54,12 +54,14 @@ export const GlobalStyle = createGlobalStyle`
     transition: ${props => props.theme.defaultTransition};
   }
 
-  @keyframes sheen {
-  0% {
-    transform: skewY(-45deg) translateX(0);
+  .fade-enter {
+    opacity: 0;
+    z-index: 1;
   }
-  100% {
-    transform: skewY(-45deg) translateX(12.5rem);
+
+  .fade-enter.fade-enter-active {
+    opacity: 1;
+    transition: opacity 500ms ease-in;
   }
 }
 
