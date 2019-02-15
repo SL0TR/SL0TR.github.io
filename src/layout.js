@@ -7,9 +7,15 @@ import ThemeSwitchBtn from './components/common/themeSwitchBtn';
 import Nav from './components/common/nav';
 
 const LayoutContainer = styled.div`
+
 `;
 
 const ChildrenWrapper = styled.div`
+  height: 100vh;
+  width: 100%;
+  transition: all .3s ease-in-out;
+  background: ${props => props.theme.bg};
+  padding: 14rem 0;
 `;
 
 
